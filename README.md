@@ -2,6 +2,6 @@
 
 usuario: clauloro
 
-link repositorio:
+link repositorio: https://github.com/clauloro/recursividad1.git
 
-Problemas: Entrega Individual
+ # Problemas: Entrega Individual
