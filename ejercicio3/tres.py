@@ -1,13 +1,19 @@
 def ordenar_fichas(fichas):
-    rojas= []
-    verdes= []
+    if not fichas:
+        return []
+    rojas = []
+    verdes = []
+    no_ordenadas = []
     azules = []
     for ficha in fichas:
-        if ficha== "rojo":
+        if ficha == "R":
             rojas.append(ficha)
-        elif ficha == "verde":
+        elif ficha == "V":
             verdes.append(ficha)
-        elif ficha == "azul":
+        elif ficha == "A":
             azules.append(ficha)
-    return rojas + verdes + azules 
-print(ordenar_fichas(["rojo","azul","azul","rojo","verde","azul","azul","rojo","azul","rojo","rojo","verde","rojo","rojo","azul","verde","verde"]))
+        else:
+            no_ordenadas.append(ficha)
+
+    ordenadas_no_ordenadas = ordenar_fichas(no_ordenadas)
+    return rojas + verdes + ordenadas_no_ordenadas + azules

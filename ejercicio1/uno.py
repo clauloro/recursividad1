@@ -1,16 +1,17 @@
-tabla = [1, 2, 3, 4, 5, 6, 7, 8]
-valor_buscado = int(input('Introduzca el valor que desea encontrar: '))
-
-indice_inicial = 0
-indice_final = len(tabla) - 1
-while indice_inicial <= indice_final:
-    indice_medio = (indice_inicial + indice_final) // 2
-    if tabla[indice_medio] == valor_buscado:
-        print(f'El valor {valor_buscado} se encuentra en la posición {indice_medio}')
-        break
-    elif tabla[indice_medio] < valor_buscado:
-        indice_inicial = indice_medio + 1
+def busqueda_numérica(tabla, n, i, j):
+    if i > j:
+        return 'No se encontró el valor'
     else:
-        indice_final = indice_medio - 1
-else:
-    print(f'El valor {valor_buscado} no se encuentra en la lista')
+        m = (i + j) // 2
+        if tabla[m] == n:
+            return m
+        elif tabla[m] < n:
+            return busqueda_numérica(tabla, n, m + 1, j)
+        else:
+            return busqueda_numérica(tabla, n, i, m - 1)
+
+tabla = [1, 2, 3, 4, 5, 6, 7, 8]
+n = int(input('Introduzca el valor que desea encontrar: '))
+resultado = busqueda_numérica(tabla, n, 0, len(tabla) - 1)
+print(resultado)
+
